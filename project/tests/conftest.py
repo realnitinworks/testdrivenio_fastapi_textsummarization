@@ -30,7 +30,7 @@ def test_app():
     # tear down
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="function")
 def test_app_with_db():
     # set up
     app = create_application()
