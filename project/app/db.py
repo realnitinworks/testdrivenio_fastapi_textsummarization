@@ -1,13 +1,12 @@
 # project/app/db.py
 
 
-import os
 import logging
+import os
 
 from fastapi import FastAPI
-from tortoise.contrib.fastapi import register_tortoise
 from tortoise import Tortoise, run_async
-
+from tortoise.contrib.fastapi import register_tortoise
 
 log = logging.getLogger("uvicorn")
 
@@ -43,8 +42,7 @@ async def generate_schema() -> None:
     log.info("Intializing Tortoise...")
 
     await Tortoise.init(
-        db_url=os.environ.get("DATABASE_URL"),
-        modules={"models": ["models.tortoise"],}
+        db_url=os.environ.get("DATABASE_URL"), modules={"models": ["models.tortoise"]}
     )
 
     log.info("Generating database schema via Tortoise...")
